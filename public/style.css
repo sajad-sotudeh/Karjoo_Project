@@ -1,0 +1,66 @@
+@font-face {
+    font-family: IranSans;
+    src: url(fonts/IRAN-Sans.ttf);
+}
+@font-face {
+    font-family: IranSansBold;
+    src: url(fonts/IRAN-Sans-Bold.ttf);
+}
+@font-face {
+    font-family: IranSansLight;
+    src: url(fonts/IRAN-Sans-Light.ttf);
+}
+
+header{
+	font-family: IranSans;
+}
+#header nav a{
+	font-size: 14px;
+	margin-left: 15px;
+	text-decoration: none;
+	color: #6666ff;
+}
+#header nav a:hover{
+	color: #1919ff;
+	text-decoration: underline;
+}
+
+hr.style-one {
+	clear: both;
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body{
+	font-family: IranSans;
+	font-size: 18px;
+	direction: rtl;
+	margin:0 20px;
+}
+
+.wrap{
+	font-family: IranSans;
+}
+
+.jobInput{
+	margin-top: 30px;
+	font-family:IranSans;
+	width: 100%;
+}
+.cityInput{
+	font-family:IranSans;
+	width: 100%;
+}
+.form-group{
+	font-family: IranSans;
+	display: inline-block;
+	width: 30%;
+}
+.form{
+	margin: 0 auto;
+}
+.sbmtbtn{
+	font-family: IranSansBold;
+}

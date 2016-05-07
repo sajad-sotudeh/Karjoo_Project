@@ -11,25 +11,29 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+//Route::group(['middleware' => ['web']], function () {
 
     Route::get('/',['as' => 'home' , function () {
-        return view('welcome');
+        return view('homepage');
     }]);
 
-	Route::get('contact/{query}/{city?}', 
+	Route::get('jobs/{query}/{city?}', 
   ['as' => 'simpleResult', 'uses' => 'simpleResultController@show']);
   
-	 Route::get('contact', 
-   ['as' => 'contact', 'uses' => 'AboutController@create']);
-	 Route::post('contact', 
-   ['as' => 'contact_store', 'uses' => 'AboutController@store']);
-  
-  
-});
+	 Route::post('jobs', 
+   ['as' => 'jobs_store', 'uses' => 'AboutController@store']);
+	
+	Route::get('login', function(){
+		return view('login');
+	});
+	
+	Route::post('login', 
+   ['as' => 'userCheck', 'uses' => 'loginPageController@userCheck']);
+	
+//}
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
+// Route::group(['middleware' => 'web'], function () {
+    // Route::auth();
 
-    Route::get('/home', 'HomeController@index');
-});
+    // Route::get('/home', 'HomeController@index');
+// });

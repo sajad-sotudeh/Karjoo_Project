@@ -9,19 +9,17 @@ use GuzzleHttp\Client;
 
 class simpleResultController extends Controller
 {
-    public function show($a,$b=null){
-		
+    public function show( $query, $city = null ){		
 		$client = new Client();
-		$body['simpleQuery'] = $a;
-		$body['userID'] = 14;
-		$body['options'] = array( 'city'=>$b );
-        // $res = $client->post('http://localhost:9998/Search/getSearchResults', [ 'body' => json_encode($body) ]);
-		$res = $client->post('http://localhost:9998/Search/getSearchResults',[
-              'json' => ['simpleQuery' => $a, 'userID' => 14, 'options' => array ('city'=>'Tehran') ]
+		 $user_inputs[0] = $query;
+		 $user_inputs[1] = $city;
+		// $body['options'] = array( 'city'=> $city );
+		$sResult = $client->post('http://localhost:9998/Search/getSearchResults',[
+              'json' => ['simpleQuery' => $query, 'userID' => 14, 'options' => array ('city'=>'Tehran') ]
            ]);
        // $result = $res->getBody();
         //dd($body);
-        $result = json_decode($res->getBody());
-		return view('resultPage')->with('result', $result);
+      $sResultArray = json_decode($sResult->getBody());
+		return view('resultPage')->with('result', $sResultArray)->with('user_inputs', $user_inputs);
 	}
 }
